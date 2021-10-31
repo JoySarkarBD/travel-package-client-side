@@ -1,4 +1,7 @@
-a{
+.font-size{
     font-size: 15px;
-    text-decoration: none;
+}
+
+a{
+ text-decoration: none;
 }

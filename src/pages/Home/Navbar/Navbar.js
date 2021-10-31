@@ -19,24 +19,24 @@ const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <Link to="/home"><a className="nav-link active text-light text-design" aria-current="page" href="/">Home</a></Link>
+                            <Link to="/home"><a className="nav-link active font-size text-light text-design" aria-current="page" href="/">Home</a></Link>
 
-                            <Link to="/packages"><a className="nav-link active text-light" aria-current="page" href="/">Packages</a></Link>
+                            <Link to="/packages"><a className="nav-link active font-size text-light" aria-current="page" href="/">Packages</a></Link>
 
-                            {user.email && <Link to="/myOrders"><a className="nav-link active text-light" aria-current="page" href="/">My Orders</a></Link>}
+                            {user.email && <Link to="/myOrders"><a className="nav-link active font-size text-light" aria-current="page" href="/">My Orders</a></Link>}
 
-                            {user.email && <Link to="/manageAllOrders"><a className="nav-link active text-light" aria-current="page" href="/">Manage  Orders</a></Link>}
+                            {user.email && <Link to="/manageAllOrders"><a className="nav-link active font-size text-light" aria-current="page" href="/">Manage  Orders</a></Link>}
 
-                            {user.email && <Link to="/addAnewPackage"><a className="nav-link active text-light" aria-current="page" href="/">Add New Package</a></Link>}
+                            {user.email && <Link to="/addAnewPackage"><a className="nav-link active font-size text-light" aria-current="page" href="/">Add New Package</a></Link>}
 
-                            <Link to="/contact"><a className="nav-link active text-light" aria-current="page" href="/">Contact</a></Link>
-                            <Link to="/about"><a className="nav-link active text-light" aria-current="page" href="/">About Us</a></Link>
+                            <Link to="/contact"><a className="nav-link active font-size text-light" aria-current="page" href="/">Contact</a></Link>
+                            <Link to="/about"><a className="nav-link active font-size text-light" aria-current="page" href="/">About Us</a></Link>
 
                             {!user?.email ?
-                                <Link to="/login"><a className="nav-link active text-light" aria-current="page" href="/">Login</a></Link> :
-                                <Link onClick={logOut} to="/"><a className="nav-link active text-light" aria-current="page" href="/">Log out</a></Link>}
+                                <Link to="/login"><a className="nav-link active font-size text-light" aria-current="page" href="/">Login</a></Link> :
+                                <Link onClick={logOut} to="/"><a className="nav-link active font-size text-light" aria-current="page" href="/">Log out</a></Link>}
 
-                            {user?.email && <p className="nav-link active text-light" aria-current="page" href="/">Sign in as: {user?.displayName}</p>}
+                            {user?.email && <p className="nav-link active font-size text-light" aria-current="page" href="/">Sign in as: {user?.displayName}</p>}
                         </div>
                     </div>
                 </div>

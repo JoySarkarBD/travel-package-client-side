@@ -9,7 +9,7 @@ const Branding = () => {
                     <div className="col-md-6 mb-5">
                         <div className="d-flex flex-column">
                             <h3>Featured Video</h3>
-                            <iframe height="315" src="https://www.youtube.com/embed/DEJx0CYrDHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe height="315" src="https://www.youtube.com/embed/DEJx0CYrDHk" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     </div>
 
