@@ -49,9 +49,9 @@ const ManageAllOrders = () => {
 
                 {
                     allOrders.map(orders => <div key={orders._id} className="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Package: {orders.city}</h4>
+                        <div className="card">
+                            <div className="card-body">
+                                <h4 className="card-title">Package: {orders.city}</h4>
                                 <p className="fs-4">Your Name: {orders.name}</p>
                                 <p className="fs-5">Email: {orders.email}</p>
                                 <p className="fs-5">Booking Date: {orders.bookingDate}</p>

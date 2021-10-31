@@ -32,12 +32,12 @@ const MyOrders = () => {
         <div>
             <h1 className="text-center mb-5 mt-5">My Orders: {myOrders.length}</h1>
             <div className="container mb-5">
-                <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div className="row row-cols-1 row-cols-md-2 g-4">
                     {myOrders.map(orders =>
-                        <div key={orders._id} class="col">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Package: {orders.city}</h4>
+                        <div key={orders._id} className="col">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h4 className="card-title">Package: {orders.city}</h4>
                                     <p className="fs-4">Your Name: {orders.name}</p>
                                     <p className="fs-5">Email: {orders.email}</p>
                                     <p className="fs-5">Booking Date: {orders.bookingDate}</p>
