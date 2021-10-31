@@ -37,10 +37,11 @@ const MyOrders = () => {
                         <div key={orders._id} class="col">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="card-title">Package: {orders.city}</h3>
+                                    <h4 class="card-title">Package: {orders.city}</h4>
                                     <p className="fs-4">Your Name: {orders.name}</p>
                                     <p className="fs-5">Email: {orders.email}</p>
-                                    <p className="fs-5">Phone: {orders.phone}</p>
+                                    <p className="fs-5">Booking Date: {orders.bookingDate}</p>
+                                    <p className="fs-5">Phone: +{orders.phone}</p>
                                     <p className="fs-5">status: {orders.status}</p>
                                     <button onClick={() => cancelOrder(orders._id)} className="btn btn-danger">Cancel your order</button>
                                 </div>

@@ -54,6 +54,7 @@ const ManageAllOrders = () => {
                                 <h4 class="card-title">Package: {orders.city}</h4>
                                 <p className="fs-4">Your Name: {orders.name}</p>
                                 <p className="fs-5">Email: {orders.email}</p>
+                                <p className="fs-5">Booking Date: {orders.bookingDate}</p>
                                 <p className="fs-5">Phone: {orders.phone}</p>
                                 <p className="fs-5">status: {orders.status}</p>
                                 <div className="d-flex justify-content-between">
