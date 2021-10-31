@@ -13,9 +13,9 @@ const Footer = () => {
                     </div>
                     <div className="col-md-2 mt-5">
                         <Link to="/home"><a className="nav-link active text-light" aria-current="page" href="/">Home</a></Link>
-                        <Link to="/home"><a className="nav-link active text-light" aria-current="page" href="/">Packages</a></Link>
-                        <Link to="/home"><a className="nav-link active text-light" aria-current="page" href="/">Contact</a></Link>
-                        <Link to="/home"><a className="nav-link active text-light" aria-current="page" href="/">About Us</a></Link>
+                        <Link to="/packages"><a className="nav-link active text-light" aria-current="page" href="/">Packages</a></Link>
+                        <Link to="/contact"><a className="nav-link active text-light" aria-current="page" href="/">Contact</a></Link>
+                        <Link to="/about"><a className="nav-link active text-light" aria-current="page" href="/">About Us</a></Link>
                     </div>
                     <div className="col-md-6 mt-5">
                         <div>

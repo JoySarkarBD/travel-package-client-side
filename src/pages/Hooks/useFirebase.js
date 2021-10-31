@@ -97,16 +97,13 @@ const useFirebase = () => {
     }
 
     const googleSignIn = () => {
-        setIsLoading(true);
+
         return signInWithPopup(auth, googleProvider)
         // .then(result => {
         //     setUser(result.user);
         // })
         // .catch((error) => {
         //     setError(error.message)
-        // }).finally(() =>
-        //     setIsLoading(false)
-        // );
     }
 
     useEffect(() => {
@@ -134,7 +131,7 @@ const useFirebase = () => {
             );
     }
 
-    return { user, error, userRegistration, getName, getEmail, getPassword, userEmail, userPassword, signInWithEmail, googleSignIn, logOut, isLoading }
+    return { user, error, setUser, userRegistration, getName, getEmail, getPassword, userEmail, userPassword, signInWithEmail, googleSignIn, setIsLoading, logOut, setError, isLoading }
 
 }
 
