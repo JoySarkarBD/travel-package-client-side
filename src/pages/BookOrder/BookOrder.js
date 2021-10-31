@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import axios from "axios"
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
 import useAuth from '../Hooks/useAuth';
 
 const BookOrder = () => {
     const { id } = useParams();
     const [packages, setPackages] = useState({});
+    const nameRef = useRef('');
+    const emailRef = useRef('');
+    const cityRef = useRef('');
+    const addressRef = useRef('');
+    const bookingDateRef = useRef('');
+    const phoneRef = useRef('');
 
 
     useEffect(() => {
@@ -16,22 +20,40 @@ const BookOrder = () => {
             .then((data) => setPackages(data));
     }, []);
 
-    const onSubmit = data => {
-        data.status = "pending"
-        axios.post("https://warm-sands-58745.herokuapp.com/bookedPackages", data)
-            .then(res => {
-                if (res.data.insertedId) {
-                    alert("Booked package successfully...!");
-                    reset();
+
+    const bookOrder = (e) => {
+        e.preventDefault();
+
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const city = cityRef.current.value;
+        const address = addressRef.current.value;
+        const bookingDate = bookingDateRef.current.value;
+        const phone = phoneRef.current.value;
+
+        const newBookedOrder = {
+            name: name,
+            email: email,
+            city: city,
+            address: address,
+            bookingDate: bookingDate,
+            phone: phone,
+            status: "Pending"
+        }
+
+        fetch("https://warm-sands-58745.herokuapp.com/bookedPackages", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(newBookedOrder)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert("Booked successfully....!")
                 }
             })
-        // .then(result => console.log(result))
-        // console.log(data);
+
     }
-
-
-
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const { user } = useAuth();
 
@@ -45,25 +67,31 @@ const BookOrder = () => {
 
                 <div className="col-md-6 col-sm-12">
                     <div className="mx-auto mb-5">
-                        {/* <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}> */}
-                        <form onSubmit={handleSubmit(onSubmit)} className="shipping-form d-flex flex-column container">
-                            <h2>Fill this form</h2>
+
+                        <form onSubmit={bookOrder} className="d-flex flex-column container">
                             <label htmlFor="">Your Name</label>
-                            <input defaultValue={user.displayName} {...register("name")} />
-                            <label htmlFor="">Your Mail</label>
-                            <input defaultValue={user.email} {...register("email", { required: true })} />
-                            {errors.email && <span className="error">This field is required</span>}
+                            <input type="text" ref={nameRef} value={user.displayName} required />
+
+                            <label htmlFor="">Your Email</label>
+                            <input type="text" ref={emailRef} value={user.email} required />
+
+                            <label htmlFor="" >Your Package</label>
+                            <input type="text" ref={cityRef} value={packages?.name} required />
+
                             <label htmlFor="">Your Address</label>
-                            <input placeholder="Enter Your Address" defaultValue="" {...register("address", { required: true })} />
-                            <label htmlFor="">Package Name</label>
-                            <input placeholder="Enter Your Package Name" defaultValue={packages?.name} {...register("city", { required: true })} />
+                            <input type="text" ref={addressRef} placeholder="Enter Your Address" required />
+
                             <label htmlFor="">Booking Date</label>
-                            <input placeholder="Enter Your Package Name" type="date" defaultValue={packages?.name} {...register("bookingDate", { required: true })} />
+                            <input type="date" ref={bookingDateRef} />
+
                             <label htmlFor="">Your Phone Number</label>
-                            <input placeholder="phone number" type="number" defaultValue="" {...register("phone", { required: true })} />
-                            <input className="bg-primary text-white fs-4" type="submit" />
+                            <input type="number" ref={phoneRef} required />
+
+                            <input type="submit" />
+
                         </form>
-                    </div></div>
+                    </div>
+                </div>
 
                 <div className="col-md-6">
                     <h2>Here is your package details</h2>

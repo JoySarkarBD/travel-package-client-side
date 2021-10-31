@@ -7,7 +7,7 @@ const ManageAllOrders = () => {
         fetch("https://warm-sands-58745.herokuapp.com/manageOrders")
             .then(res => res.json())
             .then(data => setAllOrders(data))
-    }, [])
+    }, [allOrders])
 
     const rejectOrder = (id) => {
         const url = `https://warm-sands-58745.herokuapp.com/manageOrders/${id}`
