@@ -9,14 +9,28 @@ const Login = () => {
         googleSignIn,
         userEmail,
         userPassword,
+        setUser,
+        setError,
+        setIsLoading
+
     } = useAuth();
+
     const location = useLocation();
     const history = useHistory();
     const redirect_url = location.state?.from || "/home";
+
+
     const googleLogin = () => {
-        googleSignIn();
-        history.push(redirect_url)
+        googleSignIn()
+            .then(result => {
+                setUser(result.user);
+                history.push(redirect_url)
+            })
+            .catch((error) => {
+                setError(error.message)
+            })
     }
+
     return (
         <div>
             <div className="container">
@@ -25,7 +39,7 @@ const Login = () => {
                         <div className="card border-0 shadow rounded-3 my-5">
                             <div className="card-body p-4 p-sm-5">
                                 <h2 className="card-title text-center mb-5 fw-light">Sign In</h2>
-                                <form>
+                                <div>
                                     <div className="form-floating mb-3">
                                         <input onChange={userEmail} type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
                                         <label for="floatingInput">Email address</label>
@@ -45,7 +59,7 @@ const Login = () => {
                                         </button>
                                     </div>
                                     <Link to="/register"> <a href="/"> Don't have an account? Create An Account....!</a></Link>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>

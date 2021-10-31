@@ -9,7 +9,6 @@ const PrivateRoute = ({ children, ...rest }) => {
         return <div className="spinner-border text-dark container mt-5 mb-5 d-flex justify-content-center" role="status">
             <span className="visually-hidden">Loading...</span>
         </div>
-
     }
 
     return (
@@ -28,7 +27,6 @@ const PrivateRoute = ({ children, ...rest }) => {
                 )
             }
         />
-
     );
 };
 
